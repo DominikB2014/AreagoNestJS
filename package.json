@@ -27,6 +27,7 @@
     "@nestjs/mongoose": "^7.1.2",
     "@nestjs/platform-express": "^7.5.1",
     "@types/mongoose": "^5.10.2",
+    "husky": "^4.3.4",
     "js-yaml": "^3.14.0",
     "mongoose": "5.10.18",
     "reflect-metadata": "^0.1.13",
@@ -72,5 +73,10 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "prettier --write ."
+    }
   }
 }
