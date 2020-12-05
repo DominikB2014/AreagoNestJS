@@ -12,8 +12,6 @@ export class ReviewService {
 
   async create(review: Review) {
     const newReview = new this.reviewModel(review);
-    const result = await newReview.save();
-    console.log(result);
-    return newReview._id;
+    return await newReview.save();
   }
 }
