@@ -1,43 +1,20 @@
-import { Document } from 'mongoose';
-import { Prop, raw, Schema, SchemaFactory } from '@nestjs/mongoose';
+import * as mongoose from 'mongoose';
 
-export type AreaDocument = Area & Document;
-
-@Schema()
-export class Area {
-  @Prop()
-  name: string;
-
-  @Prop()
-  city: string;
-
-  @Prop()
-  country: string;
-
-  @Prop()
-  overview: string;
-
-  @Prop()
-  username: string;
-
-  @Prop(
-    raw({
-      longitude: { type: Number },
-      latitude: { type: Number },
-    }),
-  )
-  coordinates: Record<string, number>;
-
-  @Prop(
-    raw({
-      two: { type: Number, default: 0 },
-      one: { type: Number, default: 0 },
-      three: { type: Number, default: 0 },
-      four: { type: Number, default: 0 },
-      five: { type: Number, default: 0 },
-    }),
-  )
-  rating: Record<string, number>;
-}
-
-export const AreaSchema = SchemaFactory.createForClass(Area);
+export const AreaSchema = new mongoose.Schema({
+  name: {type: String, required: true},
+  city: {type: String, required: true},
+  country: {type: String, required: true},
+  overview: {type: String, required: true},
+  username: {type: String, required: true},
+  coordinates: {
+    longitude: {type: Number, required: true},
+    latitude: {type: Number, required: true}
+  },
+  rating: {
+    one: {type: Number, default: 0},
+    two: {type: Number, default: 0},
+    three: {type: Number, default: 0},
+    foure: {type: Number, default: 0},
+    five: {type: Number, default: 0}
+  }
+});
