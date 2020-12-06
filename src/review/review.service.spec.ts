@@ -21,7 +21,7 @@ const mockReviewDocument = (reviewDocument: Partial<ReviewDocument>): Partial<Re
 
 describe('ReviewService', () => {
   let service: ReviewService;
-  let model: Model<ReviewDocument>
+  let model: Model<ReviewDocument>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -34,7 +34,7 @@ describe('ReviewService', () => {
             constructor: jest.fn().mockResolvedValue(mockReview({})),
             find: jest.fn(),
             create: jest.fn(),
-            remove: jest.fn()
+            remove: jest.fn(),
           },
         },
       ],
